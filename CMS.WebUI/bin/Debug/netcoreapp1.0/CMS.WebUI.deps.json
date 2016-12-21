@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "93b446cfc7a034a496d9949331a026e486c9cc35"
+    "signature": "979ab2afae2f028f1de8397cd9305b243e3d251c"
   },
   "compilationOptions": {
     "defines": [
@@ -30,13 +30,41 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "CMS.Domain": "1.0.0"
+          "CMS.1.Domain": "1.0.0",
+          "Repository": "1.0.0",
+          "Business": "1.0.0",
+          "Autofac.Extensions.DependencyInjection": "4.0.0"
         },
         "runtime": {
           "CMS.WebUI.dll": {}
         },
         "compile": {
           "CMS.WebUI.dll": {}
+        }
+      },
+      "Autofac/4.0.0": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.ComponentModel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0": {
+        "dependencies": {
+          "Autofac": "4.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/1.0.1": {
@@ -3185,7 +3213,19 @@
           "ref/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "CMS.Domain/1.0.0": {
+      "Business/1.0.0": {
+        "dependencies": {
+          "CMS.3.BussinesInterfaces": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "runtime": {
+          "Business.dll": {}
+        },
+        "compile": {
+          "Business.dll": {}
+        }
+      },
+      "CMS.1.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.1",
           "Microsoft.EntityFrameworkCore": "1.1.0",
@@ -3194,10 +3234,48 @@
           "Microsoft.EntityFrameworkCore.Design": "1.1.0"
         },
         "runtime": {
-          "CMS.Domain.dll": {}
+          "CMS.1.Domain.dll": {}
         },
         "compile": {
-          "CMS.Domain.dll": {}
+          "CMS.1.Domain.dll": {}
+        }
+      },
+      "CMS.2.RepositoryInterfaces/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CMS.2.RepositoryInterfaces.dll": {}
+        },
+        "compile": {
+          "CMS.2.RepositoryInterfaces.dll": {}
+        }
+      },
+      "CMS.3.BussinesInterfaces/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CMS.3.BussinesInterfaces.dll": {}
+        },
+        "compile": {
+          "CMS.3.BussinesInterfaces.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Repository.dll": {}
+        },
+        "compile": {
+          "Repository.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -3715,6 +3793,16 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Autofac/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SCKzdkxEhyP0ahU4j2Fl3SQEO3BzAgGl1WpXe7oNHdDiVKRJ6DRpumfSekABPaBygeWwjDt88PBqe2nRToRrYA=="
+    },
+    "Autofac.Extensions.DependencyInjection/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UQP+CkHs6wfjWhisuhSFoG8CNrG8fmYOclFwx/aYNc+He1Qoi8s9UDTSzcPncJ2JOtmZmFRWSLT0jhtT6KmYJg=="
     },
     "Microsoft.AspNetCore.Antiforgery/1.0.1": {
       "type": "package",
@@ -4726,7 +4814,27 @@
       "serviceable": true,
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ=="
     },
-    "CMS.Domain/1.0.0": {
+    "Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CMS.1.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CMS.2.RepositoryInterfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CMS.3.BussinesInterfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

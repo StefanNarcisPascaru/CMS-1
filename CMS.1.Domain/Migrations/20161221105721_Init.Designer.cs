@@ -8,7 +8,7 @@ using CMS.Domain;
 namespace CMS.Domain.Migrations
 {
     [DbContext(typeof(CmsContext))]
-    [Migration("20161221095412_Init")]
+    [Migration("20161221105721_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

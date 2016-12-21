@@ -5,9 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CMS.Domain.Models
 {
-    public class User
+    public class User : BaseClass
     {
-        public Guid Id { get; set; }
         public string UserName { get; set; }
         public string CompleteName { get; set; }
         public string Email { get; set; }
@@ -15,8 +14,5 @@ namespace CMS.Domain.Models
 
         [ForeignKey("UserId")]
         public virtual ICollection<UserRank> UserRanks { get; set; }
-        [ConcurrencyCheck]
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
     }
 }

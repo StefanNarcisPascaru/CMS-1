@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "793ad00ded27db0bcd856030b94da9cb6cd03b72"
+    "signature": "bf1d98c2140dbc132e121d8bdcb512f0a2c11858"
   },
   "compilationOptions": {
     "defines": [
@@ -30,10 +30,32 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "CMS.Domain": "1.0.0"
+          "CMS.1.Domain": "1.0.0",
+          "Repository": "1.0.0",
+          "Business": "1.0.0",
+          "Autofac.Extensions.DependencyInjection": "4.0.0"
         },
         "compile": {
           "CMS.WebUI.dll": {}
+        }
+      },
+      "Autofac/4.0.0": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.ComponentModel": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0": {
+        "dependencies": {
+          "Autofac": "4.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -2755,7 +2777,16 @@
           "System.Xml.XPath": "4.0.1"
         }
       },
-      "CMS.Domain/1.0.0": {
+      "Business/1.0.0": {
+        "dependencies": {
+          "CMS.3.BussinesInterfaces": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "Business.dll": {}
+        }
+      },
+      "CMS.1.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.1",
           "Microsoft.EntityFrameworkCore": "1.1.0",
@@ -2764,7 +2795,36 @@
           "Microsoft.EntityFrameworkCore.Design": "1.1.0"
         },
         "compile": {
-          "CMS.Domain.dll": {}
+          "CMS.1.Domain.dll": {}
+        }
+      },
+      "CMS.2.RepositoryInterfaces/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "compile": {
+          "CMS.2.RepositoryInterfaces.dll": {}
+        }
+      },
+      "CMS.3.BussinesInterfaces/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "compile": {
+          "CMS.3.BussinesInterfaces.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "compile": {
+          "Repository.dll": {}
         }
       }
     },
@@ -2785,10 +2845,32 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "CMS.Domain": "1.0.0"
+          "CMS.1.Domain": "1.0.0",
+          "Repository": "1.0.0",
+          "Business": "1.0.0",
+          "Autofac.Extensions.DependencyInjection": "4.0.0"
         },
         "runtime": {
           "CMS.WebUI.dll": {}
+        }
+      },
+      "Autofac/4.0.0": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.ComponentModel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0": {
+        "dependencies": {
+          "Autofac": "4.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -5420,7 +5502,16 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "CMS.Domain/1.0.0": {
+      "Business/1.0.0": {
+        "dependencies": {
+          "CMS.3.BussinesInterfaces": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "runtime": {
+          "Business.dll": {}
+        }
+      },
+      "CMS.1.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.1",
           "Microsoft.EntityFrameworkCore": "1.1.0",
@@ -5429,7 +5520,36 @@
           "Microsoft.EntityFrameworkCore.Design": "1.1.0"
         },
         "runtime": {
-          "CMS.Domain.dll": {}
+          "CMS.1.Domain.dll": {}
+        }
+      },
+      "CMS.2.RepositoryInterfaces/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CMS.2.RepositoryInterfaces.dll": {}
+        }
+      },
+      "CMS.3.BussinesInterfaces/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CMS.3.BussinesInterfaces.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "CMS.1.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Repository.dll": {}
         }
       }
     }
@@ -5439,6 +5559,16 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Autofac/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SCKzdkxEhyP0ahU4j2Fl3SQEO3BzAgGl1WpXe7oNHdDiVKRJ6DRpumfSekABPaBygeWwjDt88PBqe2nRToRrYA=="
+    },
+    "Autofac.Extensions.DependencyInjection/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UQP+CkHs6wfjWhisuhSFoG8CNrG8fmYOclFwx/aYNc+He1Qoi8s9UDTSzcPncJ2JOtmZmFRWSLT0jhtT6KmYJg=="
     },
     "Libuv/1.9.0": {
       "type": "package",
@@ -6520,7 +6650,27 @@
       "serviceable": true,
       "sha512": "sha512-FLhdYJx4331oGovQypQ8JIw2kEmNzCsjVOVYY/16kZTUoquZG85oVn7yUhBE2OZt1yGPSXAL0HTEfzjlbNpM7Q=="
     },
-    "CMS.Domain/1.0.0": {
+    "Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CMS.1.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CMS.2.RepositoryInterfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CMS.3.BussinesInterfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

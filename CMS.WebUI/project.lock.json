@@ -3,6 +3,33 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "Autofac/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -4182,7 +4209,21 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "CMS.Domain/1.0.0": {
+      "Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.0",
+        "dependencies": {
+          "CMS.3.BussinesInterfaces": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "netcoreapp1.0/Business.dll": {}
+        },
+        "runtime": {
+          "netcoreapp1.0/Business.dll": {}
+        }
+      },
+      "CMS.1.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v1.0",
         "dependencies": {
@@ -4193,15 +4234,85 @@
           "Microsoft.NETCore.App": "1.0.1"
         },
         "compile": {
-          "netcoreapp1.0/CMS.Domain.dll": {}
+          "netcoreapp1.0/CMS.1.Domain.dll": {}
         },
         "runtime": {
-          "netcoreapp1.0/CMS.Domain.dll": {}
+          "netcoreapp1.0/CMS.1.Domain.dll": {}
+        }
+      },
+      "CMS.2.RepositoryInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.0",
+        "dependencies": {
+          "CMS.1.Domain": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "netcoreapp1.0/CMS.2.RepositoryInterfaces.dll": {}
+        },
+        "runtime": {
+          "netcoreapp1.0/CMS.2.RepositoryInterfaces.dll": {}
+        }
+      },
+      "CMS.3.BussinesInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.0",
+        "dependencies": {
+          "CMS.1.Domain": "1.0.0",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "netcoreapp1.0/CMS.3.BussinesInterfaces.dll": {}
+        },
+        "runtime": {
+          "netcoreapp1.0/CMS.3.BussinesInterfaces.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.0",
+        "dependencies": {
+          "CMS.1.Domain": "1.0.0",
+          "CMS.2.RepositoryInterfaces": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "netcoreapp1.0/Repository.dll": {}
+        },
+        "runtime": {
+          "netcoreapp1.0/Repository.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "Autofac/4.0.0": {
+      "sha512": "SCKzdkxEhyP0ahU4j2Fl3SQEO3BzAgGl1WpXe7oNHdDiVKRJ6DRpumfSekABPaBygeWwjDt88PBqe2nRToRrYA==",
+      "type": "package",
+      "path": "Autofac/4.0.0",
+      "files": [
+        "Autofac.4.0.0.nupkg.sha512",
+        "Autofac.nuspec",
+        "lib/net451/Autofac.dll",
+        "lib/net451/Autofac.xml",
+        "lib/netstandard1.1/Autofac.dll",
+        "lib/netstandard1.1/Autofac.xml",
+        "lib/uap10.0/Autofac.dll",
+        "lib/uap10.0/Autofac.xml"
+      ]
+    },
+    "Autofac.Extensions.DependencyInjection/4.0.0": {
+      "sha512": "UQP+CkHs6wfjWhisuhSFoG8CNrG8fmYOclFwx/aYNc+He1Qoi8s9UDTSzcPncJ2JOtmZmFRWSLT0jhtT6KmYJg==",
+      "type": "package",
+      "path": "Autofac.Extensions.DependencyInjection/4.0.0",
+      "files": [
+        "Autofac.Extensions.DependencyInjection.4.0.0.nupkg.sha512",
+        "Autofac.Extensions.DependencyInjection.nuspec",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.xml"
+      ]
+    },
     "Libuv/1.9.0": {
       "sha512": "9Q7AaqtQhS8JDSIvRBt6ODSLWDBI4c8YxNxyCQemWebBFUtBbc6M5Vi5Gz1ZyIUlTW3rZK9bIr5gnVyv0z7a2Q==",
       "type": "package",
@@ -10749,15 +10860,37 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "CMS.Domain/1.0.0": {
+    "Business/1.0.0": {
       "type": "project",
-      "path": "../CMS.Domain/project.json",
-      "msbuildProject": "../CMS.Domain/CMS.Domain.xproj"
+      "path": "../Business/project.json",
+      "msbuildProject": "../Business/Business.xproj"
+    },
+    "CMS.1.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CMS.1.Domain/project.json",
+      "msbuildProject": "../CMS.1.Domain/CMS.1.Domain.xproj"
+    },
+    "CMS.2.RepositoryInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../CMS.2.RepositoryInterfaces/project.json",
+      "msbuildProject": "../CMS.2.RepositoryInterfaces/CMS.2.RepositoryInterfaces.xproj"
+    },
+    "CMS.3.BussinesInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../CMS.3.BussinesInterfaces/project.json",
+      "msbuildProject": "../CMS.3.BussinesInterfaces/CMS.3.BussinesInterfaces.xproj"
+    },
+    "Repository/1.0.0": {
+      "type": "project",
+      "path": "../Repository/project.json",
+      "msbuildProject": "../Repository/Repository.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "CMS.Domain >= 1.0.0-*",
+      "Autofac.Extensions.DependencyInjection >= 4.0.0",
+      "Business >= 1.0.0-*",
+      "CMS.1.Domain >= 1.0.0-*",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.1",
       "Microsoft.AspNetCore.Razor.Tools >= 1.0.0-preview2-final",
@@ -10772,7 +10905,8 @@
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Microsoft.NETCore.App >= 1.0.1",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0",
+      "Repository >= 1.0.0-*"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

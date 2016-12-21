@@ -1,0 +1,23 @@
+﻿@model CMS.WebUI.ViewModels.UserLogin
+login form
+<form asp-controller="Account" asp-action="Login" asp-antiforgery="true" method="post">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div>
+        <input type="text" name="username" /> <span asp-validation-for="UserName"></span>
+        @*@Html.ValidationMessageFor(ul => ul.UserName)*@
+    </div>
+    <div>
+        <input type="password" name="password" />
+        @Html.ValidationMessageFor(ul => ul.Password)
+    </div>
+    <div>
+        <input type="checkbox" value="checked" />
+        @Html.DisplayNameFor(ul => ul.RememberMe)
+    </div>
+    <div>
+        <input type="submit" title="submit" />
+    </div>
+    <div asp-validation-summary="All"></div>
+
+</form>

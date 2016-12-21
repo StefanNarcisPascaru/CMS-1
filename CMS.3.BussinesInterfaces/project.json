@@ -1,11 +1,13 @@
-﻿{
+{
   "version": "1.0.0-*",
 
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.1",
-      "type": "platform"
-    }
+      "type": "platform",
+      "version": "1.0.1"
+    },
+    "CMS.2.RepositoryInterfaces": "1.0.0-*",
+    "CMS.1.Domain": "1.0.0-*"
   },
 
   "frameworks": {
