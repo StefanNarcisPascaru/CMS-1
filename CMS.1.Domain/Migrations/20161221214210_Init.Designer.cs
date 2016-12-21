@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using CMS.Domain;
 
-namespace CMS.Domain.Migrations
+namespace CMS._1.Domain.Migrations
 {
     [DbContext(typeof(CmsContext))]
-    [Migration("20161221105721_Init")]
+    [Migration("20161221214210_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,10 @@ namespace CMS.Domain.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.HasKey("Id");
 

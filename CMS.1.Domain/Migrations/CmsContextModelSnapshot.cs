@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using CMS.Domain;
 
-namespace CMS.Domain.Migrations
+namespace CMS._1.Domain.Migrations
 {
     [DbContext(typeof(CmsContext))]
     partial class CmsContextModelSnapshot : ModelSnapshot
@@ -22,6 +22,10 @@ namespace CMS.Domain.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.HasKey("Id");
 
