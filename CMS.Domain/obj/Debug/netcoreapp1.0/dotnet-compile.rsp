@@ -113,5 +113,11 @@
 --reference:C:\Users\Stefan\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Stefan\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Stefan\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
-C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Class1.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\CMSContext.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Migrations\20161221095412_Init.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Migrations\20161221095412_Init.Designer.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Migrations\CmsContextModelSnapshot.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Models\Rank.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Models\User.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Models\UserRank.cs
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-master\CMS\CMS.Domain\Properties\AssemblyInfo.cs
