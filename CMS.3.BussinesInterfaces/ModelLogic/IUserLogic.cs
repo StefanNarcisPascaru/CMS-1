@@ -10,5 +10,7 @@ namespace CMS.BussinesInterfaces.ModelLogic
     {
         User GetUser(Guid id);
         bool IsValidUser(string user, string password);
+
+        ICollection<string> GetRanks(string user);
     }
 }

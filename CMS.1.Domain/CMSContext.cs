@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Linq;
 using CMS.Domain.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Domain
 {
-    public class CmsContext : DbContext
+    public class CmsContext : DbContext//IdentityDbContext<User,Rank,Guid>
     {
+
         public DbSet<User> Users { get; set; }
         public DbSet<Rank> Ranks { get; set; }
         public DbSet<UserRank> UserRanks { get; set; }
@@ -48,6 +50,12 @@ namespace CMS.Domain
             modelBuilder.Entity<UserRank>().HasKey(ur => new { ur.UserId, ur.RankId });
             modelBuilder.Entity<User>().HasMany(u => u.UserRanks);
             modelBuilder.Entity<Rank>().HasMany(r => r.UserRanks);
+
+            //modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("RoleClaim").HasKey(x => x.Id));
+            //modelBuilder.Entity<IdentityUserRole<Guid>>(e => e.ToTable("UserRoles").HasKey(x => x.RoleId));
+            //modelBuilder.Entity<IdentityUserLogin<Guid>>(e => e.ToTable("UserLogin").HasKey(x => x.UserId));
+            //modelBuilder.Entity<IdentityUserClaim<Guid>>(e => e.ToTable("UserClaims").HasKey(x => x.Id));
+           // modelBuilder.Entity<IdentityUserToken<Guid>>(e => e.ToTable("UserTokens").HasKey(x => x.UserId));
         }
     }
 }
