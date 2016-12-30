@@ -22,6 +22,7 @@ namespace CMS.WebUI.Controllers
             return View();
         }
 
+        [Authorize(Policy = "Professor")]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

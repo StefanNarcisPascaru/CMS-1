@@ -46,6 +46,7 @@ namespace CMS.WebUI
             {
                 options.DefaultPolicy = new AuthorizationPolicyBuilder("Cookies").RequireAuthenticatedUser().Build();
                 options.AddPolicy("FacultyMember", policy => policy.RequireClaim("Rank", "Professor", "Student"));
+                options.AddPolicy("Professor", policy => policy.RequireClaim("Rank", "Professor"));
             });
 
             services.AddMvc();

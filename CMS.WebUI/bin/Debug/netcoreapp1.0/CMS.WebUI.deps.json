@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "a94a43243bed5fb767bbc2d64075f7563d5d8eae"
+    "signature": "57dc94ee95534d1eec0c63a1dbce8a5197376fc3"
   },
   "compilationOptions": {
     "defines": [
@@ -16,32 +16,46 @@
     ".NETCoreApp,Version=v1.0": {
       "CMS.WebUI/1.0.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": "1.0.1",
+          "Autofac.Extensions.DependencyInjection": "4.0.0",
+          "Business": "1.0.0",
+          "CMS.1.Domain": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.1.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
           "Microsoft.AspNetCore.Routing": "1.0.1",
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
           "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
           "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.1.0",
-          "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
           "Microsoft.Extensions.Logging": "1.1.0",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "CMS.1.Domain": "1.0.0",
           "Repository": "1.0.0",
-          "Business": "1.0.0",
-          "Autofac.Extensions.DependencyInjection": "4.0.0"
+          "antlr4": "4.5.3"
         },
         "runtime": {
           "CMS.WebUI.dll": {}
         },
         "compile": {
           "CMS.WebUI.dll": {}
+        }
+      },
+      "antlr4/4.5.3": {
+        "dependencies": {
+          "Antlr4.Runtime": "4.5.3"
+        }
+      },
+      "Antlr4.Runtime/4.5.3": {
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.dll": {}
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.dll": {}
         }
       },
       "Autofac/4.0.0": {
@@ -3859,6 +3873,16 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "antlr4/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yqrZphYCjsvQWPcbFDTBoi1dEC5vpYdE5VyGoTlq3qH+TBEM1b2kSVKkMGG7OK9Ditjf0JjJajuHcufpxj3H8Q=="
+    },
+    "Antlr4.Runtime/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LmBPKSi+sBH/FrXxZQwxrPhepN7L99BIQ8oZnnUMJWVoDdnuI5GRvLqsWow4nHenywc5pkiOWO3QGGs9vp03ig=="
     },
     "Autofac/4.0.0": {
       "type": "package",
