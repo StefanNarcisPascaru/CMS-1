@@ -12,6 +12,10 @@ namespace CMS.Domain
         public DbSet<User> Users { get; set; }
         public DbSet<Rank> Ranks { get; set; }
         public DbSet<UserRank> UserRanks { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Resource> Resources { get; set; }
+    
 
         public void Seed()
         {
@@ -38,24 +42,45 @@ namespace CMS.Domain
                 });
                 SaveChanges();
             }
+
+            if (!Subjects.Any())
+            {
+                Subjects.Add(new Subject { subjectName = "POO", teacherName = "Gavrilut" });
+                SaveChanges();
+            }
+
+            if (!Resources.Any())
+            {
+                Resources.Add(new Resource { type = "Course", path = " ..//.. " });
+                SaveChanges();
+
+            }
         }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=CMS;Integrated Security=True;MultipleActiveResultSets=True");
+            optionsBuilder.UseSqlServer("data source = (localdb)\\MSSQLLocalDB;Initial Catalog=CMS;Integrated Security=True;MultipleActiveResultSets=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRank>().HasKey(ur => new { ur.UserId, ur.RankId });
+            modelBuilder.Entity<Subject>().HasKey(s => new { s.subjectName, s.teacherName });
+            modelBuilder.Entity<Resource>().HasKey(r => new { r.path });
+            modelBuilder.Entity<Comment>().HasKey(c => new { c.UserId, c.message });
+
+            modelBuilder.Entity<User>().HasMany(u => u.Comments);
             modelBuilder.Entity<User>().HasMany(u => u.UserRanks);
             modelBuilder.Entity<Rank>().HasMany(r => r.UserRanks);
+        //  modelBuilder.Entity<Subject>().HasMany(s => s.Resources);
+            
 
             //modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("RoleClaim").HasKey(x => x.Id));
             //modelBuilder.Entity<IdentityUserRole<Guid>>(e => e.ToTable("UserRoles").HasKey(x => x.RoleId));
             //modelBuilder.Entity<IdentityUserLogin<Guid>>(e => e.ToTable("UserLogin").HasKey(x => x.UserId));
             //modelBuilder.Entity<IdentityUserClaim<Guid>>(e => e.ToTable("UserClaims").HasKey(x => x.Id));
-           // modelBuilder.Entity<IdentityUserToken<Guid>>(e => e.ToTable("UserTokens").HasKey(x => x.UserId));
+            // modelBuilder.Entity<IdentityUserToken<Guid>>(e => e.ToTable("UserTokens").HasKey(x => x.UserId));
         }
     }
 }

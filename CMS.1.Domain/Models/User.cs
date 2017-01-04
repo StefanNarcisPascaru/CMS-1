@@ -24,5 +24,8 @@ namespace CMS.Domain.Models
 
         [ForeignKey("UserId")]
         public virtual ICollection<UserRank> UserRanks { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
