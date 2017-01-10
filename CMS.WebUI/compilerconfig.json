@@ -6,5 +6,9 @@
   {
     "outputFile": "wwwroot/css/site.css",
     "inputFile": "wwwroot/less/site.less"
+  },
+  {
+    "outputFile": "wwwroot/css/grid.css",
+    "inputFile": "wwwroot/less/grid.less"
   }
 ]

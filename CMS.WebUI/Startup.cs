@@ -37,22 +37,19 @@ namespace CMS.WebUI
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<CmsContext>();
-
-            //services.AddIdentity<User, Rank>()
-            //.AddEntityFrameworkStores<CmsContext>()
-            //.AddDefaultTokenProviders();
-
             services.AddAuthorization(options =>
             {
                 options.DefaultPolicy = new AuthorizationPolicyBuilder("Cookies").RequireAuthenticatedUser().Build();
-                options.AddPolicy("FacultyMember", policy => policy.RequireClaim("Rank", "Professor", "Student"));
-                options.AddPolicy("Professor", policy => policy.RequireClaim("Rank", "Professor"));
+                options.AddPolicy("FacultyMember", policy => policy.RequireClaim("Rank", "Admin","Professor", "Student"));
+                options.AddPolicy("Professor", policy => policy.RequireClaim("Rank", "Admin","Professor"));
+                options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Rank", "Admin"));
             });
 
             services.AddMvc();
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterType<CmsContext>().As<DbContext>().InstancePerLifetimeScope();//.InstancePerRequest();
             containerBuilder.RegisterType<UserLogic>().As<IUserLogic>();
+            containerBuilder.RegisterType<RankLogic>().As<IRankLogic>();
             containerBuilder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>));
             containerBuilder.Populate(services);
             ApplicationContainer = containerBuilder.Build();

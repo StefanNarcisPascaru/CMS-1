@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public sealed class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseClass
+    public sealed class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly DbContext _dbContext;
 

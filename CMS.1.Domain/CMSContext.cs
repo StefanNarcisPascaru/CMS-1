@@ -15,30 +15,45 @@ namespace CMS.Domain
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Resource> Resources { get; set; }
-    
+
 
         public void Seed()
         {
             if (!Ranks.Any())
             {
-                Ranks.Add(new Rank() { Id = Guid.Parse("19BF8D19A9C640CBBB3DA229A1728D2B"), Name = "Professor" });
-                Ranks.Add(new Rank() { Id = Guid.Parse("E10601DC-DEB3-4D33-A113-A7CCE86B145B"), Name = "Student" });
+                Ranks.AddRange(new Rank() { Id = Guid.Parse("19BF8D19A9C640CBBB3DA229A1728D2B"), Name = "Professor" },
+                new Rank() { Id = Guid.Parse("E10601DC-DEB3-4D33-A113-A7CCE86B145B"), Name = "Student" },
+                new Rank() { Id = Guid.Parse("AF27FB65-D3A4-4FE4-888E-3F56C29F7B50"), Name = "Admin" });
                 SaveChanges();
             }
             if (!Users.Any())
             {
-                Users.Add(new User()
+                Users.AddRange(new User()
                 {
                     Id = Guid.Parse("EBF73255-1252-4FD0-AAD5-7C9D61E38824"),
                     CompleteName = "Grivei",
                     UserName = "grivei",
                     Email = "grivei@mail.com",
                     Password = "griveiNo.1"
-                });
-                UserRanks.Add(new UserRank()
+                },
+                new User()
+                {
+                    Id = Guid.Parse("19758159-6F94-4287-8505-CC17416C00B7"),
+                    CompleteName = "Azorel",
+                    UserName = "azorel",
+                    Email = "azorel@mail.com",
+                    Password = "AzorelNo.1"
+                }
+                );
+                UserRanks.AddRange(new UserRank()
                 {
                     UserId = Guid.Parse("EBF73255-1252-4FD0-AAD5-7C9D61E38824"),
                     RankId = Guid.Parse("19BF8D19A9C640CBBB3DA229A1728D2B")
+                },
+                new UserRank()
+                {
+                    UserId = Guid.Parse("19758159-6F94-4287-8505-CC17416C00B7"),
+                    RankId = Guid.Parse("AF27FB65-D3A4-4FE4-888E-3F56C29F7B50")
                 });
                 SaveChanges();
             }
@@ -73,14 +88,6 @@ namespace CMS.Domain
             modelBuilder.Entity<User>().HasMany(u => u.Comments);
             modelBuilder.Entity<User>().HasMany(u => u.UserRanks);
             modelBuilder.Entity<Rank>().HasMany(r => r.UserRanks);
-        //  modelBuilder.Entity<Subject>().HasMany(s => s.Resources);
-            
-
-            //modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("RoleClaim").HasKey(x => x.Id));
-            //modelBuilder.Entity<IdentityUserRole<Guid>>(e => e.ToTable("UserRoles").HasKey(x => x.RoleId));
-            //modelBuilder.Entity<IdentityUserLogin<Guid>>(e => e.ToTable("UserLogin").HasKey(x => x.UserId));
-            //modelBuilder.Entity<IdentityUserClaim<Guid>>(e => e.ToTable("UserClaims").HasKey(x => x.Id));
-            // modelBuilder.Entity<IdentityUserToken<Guid>>(e => e.ToTable("UserTokens").HasKey(x => x.UserId));
         }
     }
 }

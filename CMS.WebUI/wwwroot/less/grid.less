@@ -1,0 +1,22 @@
+﻿.header-grid {
+    background-color: beige;
+    font-size: x-large;
+}
+
+.grid {
+    div {
+        border: 1px solid white;
+    }
+
+    .grid-row {
+        background-color: aqua;
+
+        &:nth-child(odd) {
+            background-color: lighten(aqua,20%);
+        }
+
+        &:hover {
+            background-color: darken(red, 10% );
+        }
+    }
+}

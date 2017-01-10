@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS.WebUI.Controllers
@@ -9,8 +10,8 @@ namespace CMS.WebUI.Controllers
         
         public IActionResult Index()
         {
-            var a=User.Claims;
-                return View();
+            
+            return View();
           //  return RedirectToAction("Login","Account");
         }
 
@@ -29,7 +30,7 @@ namespace CMS.WebUI.Controllers
 
             return View();
         }
-
+        
         public IActionResult Error()
         {
             return View();

@@ -1,0 +1,16 @@
+﻿.header-grid {
+  background-color: beige;
+  font-size: x-large;
+}
+.grid div {
+  border: 1px solid white;
+}
+.grid .grid-row {
+  background-color: aqua;
+}
+.grid .grid-row:nth-child(odd) {
+  background-color: #66ffff;
+}
+.grid .grid-row:hover {
+  background-color: #cc0000;
+}

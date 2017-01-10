@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.min.css" />
         <link rel="stylesheet" href="~/css/form.min.css" />
+        <link rel="stylesheet" href="~/css/grid.min.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -32,24 +33,27 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if (User.HasClaim("Rank", "Admin"))
+                    {
+                        <li><a asp-area="" asp-controller="Admin" asp-action="ManageUsers">Manage Users</a></li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <div class="footer">
-            <hr />
-            <footer>
-                <p>&copy; 2016 - CMS.WebUI</p>
-            </footer>
+<div class="container body-content">
+    @RenderBody()
+    <div class="footer">
+        <hr/>
+        <footer>
+            <p>&copy; 2016 - CMS.WebUI</p>
+        </footer>
 
-        </div>
     </div>
+</div>
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

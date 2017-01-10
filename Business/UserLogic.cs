@@ -31,6 +31,11 @@ namespace Business
             return ranksToString;
         }
 
+        public ICollection<User> GetUsers()
+        {
+            return _userRepository.Query().ToList();
+        }
+
         public User GetUser(Guid id)
         {
             return _userRepository.Query(u => u.Id==id).FirstOrDefault();
