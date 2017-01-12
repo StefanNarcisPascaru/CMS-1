@@ -12,11 +12,13 @@ namespace Business
     {
         private readonly IRepository<User> _userRepository;
         private readonly IRepository<Rank> _rankRepository;
+        private readonly IRepository<UserRank> _userRankRepository;
 
-        public UserLogic(IRepository<User> users, IRepository<Rank> ranks)
+        public UserLogic(IRepository<User> users, IRepository<Rank> ranks, IRepository<UserRank> userRanks)
         {
             _userRepository = users;
             _rankRepository = ranks;
+            _userRankRepository = userRanks;
         }
 
         public ICollection<string> GetRanks(string user)
@@ -40,10 +42,28 @@ namespace Business
         {
             return _userRepository.Query(u => u.Id==id).FirstOrDefault();
         }
-        //return rank
         public bool IsValidUser(string user, string password)
         {
             return _userRepository.Query(u=> u.Password==password).Any(u => u.Email==user||u.UserName==user);
+        }
+
+        public void Update(User user,IList<Rank> ranks)
+        {
+            var editedUser=_userRepository.Query(u => u.Id == user.Id).FirstOrDefault();
+            editedUser.Email = user.Email;
+            editedUser.UserName = user.UserName;
+            editedUser.CompleteName = user.CompleteName;
+            _userRepository.SaveChanges();
+            foreach (var rank in ranks)
+            {
+                var rankId = _rankRepository.Query(r => r.Name.Equals(rank.Name)).FirstOrDefault().Id;
+                var userRanks=_userRankRepository.Query(ur => ur.UserId == user.Id && ur.RankId == rankId).FirstOrDefault();
+                if (userRanks==null)
+                {
+                    _userRankRepository.Add(new UserRank(user.Id, rankId));
+                }
+            }
+            _userRankRepository.SaveChanges();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CMS.BussinesInterfaces.ModelLogic;
 using CMS.WebUI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +28,24 @@ namespace CMS.WebUI.Controllers
                 detailedUsers.Add(new UserDto() {User = user, Ranks = _rankLogic.GetUserRanks(user.Id)});
             }
             return View(detailedUsers);
+        }
+
+        public IActionResult EditUser(Guid id)
+        {
+            var user = new UserDto
+            {
+                User = _userLogic.GetUser(id),
+                Ranks = _rankLogic.GetUserRanks(id)
+            };
+            return View(user);
+        }
+
+        [HttpPost]
+        public IActionResult SaveChangesOnUser([FromForm]UserDto userDto)
+        {
+            _userLogic.Update(userDto.User, userDto.Ranks);
+
+            return RedirectToAction("ManageUsers");
         }
     }
 }

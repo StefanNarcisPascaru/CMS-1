@@ -6,6 +6,6 @@ namespace CMS.BussinesInterfaces.ModelLogic
 {
     public interface IRankLogic
     {
-        IList<Rank> GetUserRanks(Guid index);
+        IList<Rank> GetUserRanks(Guid id);
     }
 }

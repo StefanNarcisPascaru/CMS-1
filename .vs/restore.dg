@@ -1,6 +1,26 @@
+#:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+#:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+#:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+#:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Business\Business.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Business\Business.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
 #:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Repository\Repository.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Repository\Repository.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Repository\Repository.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
 #:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.WebUI\CMS.4.Clients.xproj
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.WebUI\CMS.4.Clients.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Business\Business.xproj
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.WebUI\CMS.4.Clients.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.WebUI\CMS.4.Clients.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Repository\Repository.xproj
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Business\Business.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Repository\Repository.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\Repository\Repository.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj

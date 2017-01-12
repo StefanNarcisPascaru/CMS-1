@@ -10,5 +10,6 @@ namespace CMS.RepositoryInterfaces
         IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate=null );
         void Add(TEntity entity);
         void Delete(Guid id);
+        void SaveChanges();
     }
 }

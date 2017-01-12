@@ -12,5 +12,7 @@ namespace CMS.BussinesInterfaces.ModelLogic
         ICollection<string> GetRanks(string user);
 
         ICollection<User> GetUsers();
+
+        void Update(User user, IList<Rank> ranks);
     }
 }

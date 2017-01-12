@@ -34,5 +34,10 @@ namespace Repository
             return predicate == null ? _dbContext.Set<TEntity>():
                 _dbContext.Set<TEntity>().Where(predicate);
         }
+
+        public void SaveChanges()
+        {
+            _dbContext.SaveChanges();
+        }
     }
 }

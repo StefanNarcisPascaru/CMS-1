@@ -1,0 +1,40 @@
+﻿@model CMS.WebUI.ViewModels.UserDto
+
+
+<h3> Edit User</h3>
+<script src="~/js/options.js"></script>
+<div>
+    <form onsubmit=""
+          asp-controller="Admin" asp-action="SaveChangesOnUser" asp-antiforgery="false" method="post">
+        <input hidden name="User.Id" value="@Model.User.Id"/>
+        <div class="row">
+            <label>Complete Name</label>
+            <input type="text" name="User.CompleteName" value="@Model.User.CompleteName" />
+        </div>
+        <div class="row">
+            <label>Username</label>
+            <input type="text" name="User.UserName" value="@Model.User.UserName" />
+        </div>
+        <div class="row">
+            <label>Email</label>
+            <input type="text" name="User.Email" value="@Model.User.Email" />
+        </div>
+        <div id="role" class="row">
+            <label>Role</label>
+
+            <input type="checkbox" value="Professor" onclick="check('Professor')" />Professor
+            <input type="text" name="Ranks[0].Name" hidden id="Professor" />
+
+            <input type="checkbox" value="Student" onclick="check('Student')" />Student
+            <input type="text" name="Ranks[1].Name" hidden id="Student" />
+
+            <input type="checkbox" value="Admin" onclick="check('Admin')" />Admin
+            <input type="text" name="Ranks[2].Name" hidden id="Admin" />
+
+            <script>generateOption(@Html.Raw(Json.Serialize(Model.Ranks)));</script>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </form>
+</div>
