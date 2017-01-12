@@ -14,7 +14,7 @@ namespace CMS.Domain.Models
 
         public string teacherName { get; set; }
 
-      //  [ForeignKey("SubjectId")]
-       // public virtual ICollection<Resource> Resources { get; set; }
+        [ForeignKey("SubjectNo")]
+        public virtual ICollection<Resource> Resources { get; set; }
     }
 }

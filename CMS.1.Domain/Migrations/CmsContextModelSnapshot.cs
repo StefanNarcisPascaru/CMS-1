@@ -52,26 +52,31 @@ namespace CMS._1.Domain.Migrations
                     b.Property<string>("path")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<Guid>("SubjectNo");
+
                     b.Property<string>("type");
 
                     b.HasKey("path");
+
+                    b.HasIndex("SubjectNo");
 
                     b.ToTable("Resources");
                 });
 
             modelBuilder.Entity("CMS.Domain.Models.Subject", b =>
                 {
-                    b.Property<string>("subjectName");
-
-                    b.Property<string>("teacherName");
-
-                    b.Property<Guid>("Id");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate();
 
-                    b.HasKey("subjectName", "teacherName");
+                    b.Property<string>("subjectName");
+
+                    b.Property<string>("teacherName");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Subjects");
                 });
@@ -116,6 +121,14 @@ namespace CMS._1.Domain.Migrations
                     b.HasOne("CMS.Domain.Models.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CMS.Domain.Models.Resource", b =>
+                {
+                    b.HasOne("CMS.Domain.Models.Subject", "Subject")
+                        .WithMany("Resources")
+                        .HasForeignKey("SubjectNo")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

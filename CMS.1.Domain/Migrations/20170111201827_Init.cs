@@ -22,29 +22,17 @@ namespace CMS._1.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Resources",
-                columns: table => new
-                {
-                    path = table.Column<string>(nullable: false),
-                    type = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Resources", x => x.path);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Subjects",
                 columns: table => new
                 {
-                    subjectName = table.Column<string>(nullable: false),
-                    teacherName = table.Column<string>(nullable: false),
                     Id = table.Column<Guid>(nullable: false),
-                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true)
+                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
+                    subjectName = table.Column<string>(nullable: true),
+                    teacherName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Subjects", x => new { x.subjectName, x.teacherName });
+                    table.PrimaryKey("PK_Subjects", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,6 +49,25 @@ namespace CMS._1.Domain.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Resources",
+                columns: table => new
+                {
+                    path = table.Column<string>(nullable: false),
+                    SubjectNo = table.Column<Guid>(nullable: false),
+                    type = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Resources", x => x.path);
+                    table.ForeignKey(
+                        name: "FK_Resources_Subjects_SubjectNo",
+                        column: x => x.SubjectNo,
+                        principalTable: "Subjects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,6 +115,11 @@ namespace CMS._1.Domain.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Resources_SubjectNo",
+                table: "Resources",
+                column: "SubjectNo");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserRanks_RankId",
                 table: "UserRanks",
                 column: "RankId");
@@ -122,10 +134,10 @@ namespace CMS._1.Domain.Migrations
                 name: "Resources");
 
             migrationBuilder.DropTable(
-                name: "Subjects");
+                name: "UserRanks");
 
             migrationBuilder.DropTable(
-                name: "UserRanks");
+                name: "Subjects");
 
             migrationBuilder.DropTable(
                 name: "Ranks");
