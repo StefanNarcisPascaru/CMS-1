@@ -3,34 +3,34 @@
 
 <h3> Edit User</h3>
 <script src="~/js/options.js"></script>
-<div>
+<div >
     <form onsubmit=""
           asp-controller="Admin" asp-action="SaveChangesOnUser" asp-antiforgery="false" method="post">
         <input hidden name="User.Id" value="@Model.User.Id"/>
-        <div class="row">
-            <label>Complete Name</label>
-            <input type="text" name="User.CompleteName" value="@Model.User.CompleteName" />
+        <div class="form-group row">
+            <label class="col-md-2 col-sm-3 col-xs-4">Complete Name:</label>
+            <input class="form-control col-md-10 col-sm-9 col-xs-8" type="text" name="User.CompleteName" value="@Model.User.CompleteName" />
         </div>
-        <div class="row">
-            <label>Username</label>
-            <input type="text" name="User.UserName" value="@Model.User.UserName" />
+        <div class="form-group row">
+            <label class="col-md-2 col-sm-3 col-xs-4">Username</label>
+            <input class="form-control col-md-10 col-sm-9 col-xs-8" type="text" name="User.UserName" value="@Model.User.UserName" />
         </div>
-        <div class="row">
-            <label>Email</label>
-            <input type="text" name="User.Email" value="@Model.User.Email" />
+        <div class="form-group row">
+            <label class="col-md-2 col-sm-3 col-xs-4">Email</label>
+            <input class="form-control col-md-10 col-sm-9 col-xs-8" type="text" name="User.Email" value="@Model.User.Email" />
         </div>
-        <div id="role" class="row">
-            <label>Role</label>
+        <div  class="form-group row">
+            <label class="col-md-2 col-sm-3 col-xs-4">Role</label>
+            <div id="role" class="col-md-10 col-sm-9 col-xs-8">
+                <input type="checkbox" value="Professor" onclick="check('Professor')" />Professor
+                <input type="text" name="Ranks[0].Name" hidden id="Professor" />
 
-            <input type="checkbox" value="Professor" onclick="check('Professor')" />Professor
-            <input type="text" name="Ranks[0].Name" hidden id="Professor" />
+                <input type="checkbox" value="Student" onclick="check('Student')" />Student
+                <input type="text" name="Ranks[1].Name" hidden id="Student" />
 
-            <input type="checkbox" value="Student" onclick="check('Student')" />Student
-            <input type="text" name="Ranks[1].Name" hidden id="Student" />
-
-            <input type="checkbox" value="Admin" onclick="check('Admin')" />Admin
-            <input type="text" name="Ranks[2].Name" hidden id="Admin" />
-
+                <input type="checkbox" value="Admin" onclick="check('Admin')" />Admin
+                <input type="text" name="Ranks[2].Name" hidden id="Admin" />
+            </div>
             <script>generateOption(@Html.Raw(Json.Serialize(Model.Ranks)));</script>
         </div>
         <div>

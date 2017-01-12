@@ -5,25 +5,25 @@ Manage Users
 
 <div class="row grid">
     <div class="row header-grid">
-        <div class="col-md-1 col-sm-1 col-xs-1">No.</div>
-        <div class="col-md-2 col-sm-2 col-xs-2">UserName</div>
-        <div class="col-md-4 col-sm-4 col-xs-4">Complete Name</div>
-        <div class="col-md-4 col-sm-4 col-xs-4">Rols</div>
-        <div class="col-md-1 col-sm-1 col-xs-1">Edit</div>
+        <div class="col-md-1 col-sm-1 hidden-xs">No.</div>
+        <div class="col-md-2 col-sm-2 hidden-xs">UserName</div>
+        <div class="col-md-4 col-sm-4 col-xs-10">Complete Name</div>
+        <div class="col-md-4 col-sm-4 hidden-xs">Rols</div>
+        <div class="col-md-1 col-sm-1 col-xs-2">Edit</div>
     </div>
     @for (var i = 0; i < @Model.Count; i++)
     {
         <div class="row grid-row">
-            <div class="col-md-1 col-sm-1 col-xs-1 index">@(i + 1)</div>
-            <div class="col-md-2 col-sm-2 col-xs-2">@Model.ElementAt(i).User.UserName</div>
-            <div class="col-md-4 col-sm-4 col-xs-4">@Model.ElementAt(i).User.CompleteName</div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="col-md-1 col-sm-1 hidden-xs index">@(i + 1)</div>
+            <div class="col-md-2 col-sm-2 hidden-xs">@Model.ElementAt(i).User.UserName</div>
+            <div class="col-md-4 col-sm-4 col-xs-10">@Model.ElementAt(i).User.CompleteName</div>
+            <div class="col-md-4 col-sm-4 hidden-xs">
                 @foreach (var rank in Model.ElementAt(i).Ranks)
                 {
                     <span>@rank.Name</span>
                 }
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-1">
+            <div class="col-md-1 col-sm-1 col-xs-2">
                 <button type="button" class="btn btn-primary btn-default btn-xs" onclick="editUser('@Model.ElementAt(i).User.Id')">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </button>

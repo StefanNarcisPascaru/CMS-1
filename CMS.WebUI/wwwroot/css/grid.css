@@ -1,7 +1,7 @@
 ﻿.header-grid {
   background-color: beige;
 }
-.griddiv {
+.grid div {
   border: 1px solid white;
   font-size: medium;
   overflow: hidden;
