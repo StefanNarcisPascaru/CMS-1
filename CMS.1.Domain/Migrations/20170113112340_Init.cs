@@ -94,12 +94,14 @@ namespace CMS._1.Domain.Migrations
                 name: "UserRanks",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(nullable: false),
-                    RankId = table.Column<Guid>(nullable: false)
+                    Id = table.Column<Guid>(nullable: false),
+                    RankId = table.Column<Guid>(nullable: false),
+                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserRanks", x => new { x.UserId, x.RankId });
+                    table.PrimaryKey("PK_UserRanks", x => x.Id);
                     table.ForeignKey(
                         name: "FK_UserRanks_Ranks_RankId",
                         column: x => x.RankId,
@@ -123,6 +125,11 @@ namespace CMS._1.Domain.Migrations
                 name: "IX_UserRanks_RankId",
                 table: "UserRanks",
                 column: "RankId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRanks_UserId",
+                table: "UserRanks",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

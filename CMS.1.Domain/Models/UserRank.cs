@@ -2,7 +2,7 @@
 
 namespace CMS.Domain.Models
 {
-    public class UserRank
+    public class UserRank : BaseClass
     {
         public UserRank()
         {

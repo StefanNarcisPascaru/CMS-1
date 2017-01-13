@@ -15,7 +15,7 @@ namespace CMS.Domain
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Resource> Resources { get; set; }
-    
+
 
         public void Seed()
         {
@@ -23,6 +23,7 @@ namespace CMS.Domain
             {
                 Ranks.Add(new Rank() { Id = Guid.Parse("19BF8D19A9C640CBBB3DA229A1728D2B"), Name = "Professor" });
                 Ranks.Add(new Rank() { Id = Guid.Parse("E10601DC-DEB3-4D33-A113-A7CCE86B145B"), Name = "Student" });
+                Ranks.Add(new Rank() { Id = Guid.Parse("CB8FEF1A-1130-41D2-A371-91B4F004917A"), Name = "Admin" });
                 SaveChanges();
             }
             if (!Users.Any())
@@ -39,6 +40,20 @@ namespace CMS.Domain
                 {
                     UserId = Guid.Parse("EBF73255-1252-4FD0-AAD5-7C9D61E38824"),
                     RankId = Guid.Parse("19BF8D19A9C640CBBB3DA229A1728D2B")
+                });
+
+                Users.Add(new User()
+                {
+                    Id = Guid.Parse("1A684DE2-CE5E-487E-A419-68C777B29831"),
+                    CompleteName = "Azorel",
+                    UserName = "azorel",
+                    Email = "azorel@mail.com",
+                    Password = "azorelNo.1"
+                });
+                UserRanks.Add(new UserRank()
+                {
+                    UserId = Guid.Parse("1A684DE2-CE5E-487E-A419-68C777B29831"),
+                    RankId = Guid.Parse("CB8FEF1A-1130-41D2-A371-91B4F004917A")
                 });
                 SaveChanges();
             }
@@ -57,7 +72,7 @@ namespace CMS.Domain
 
             if (!Resources.Any())
             {
-                
+
                 Resources.Add(new Resource()
                 {
                     SubjectNo = Guid.Parse("c5a5d946-2db0-49bf-b008-da51382802b9"),
@@ -77,8 +92,8 @@ namespace CMS.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserRank>().HasKey(ur => new { ur.UserId, ur.RankId });
-           // modelBuilder.Entity<Subject>().HasKey(s => new { s.subjectName, s.teacherName });
+            //modelBuilder.Entity<UserRank>().HasKey(ur => new { ur.UserId, ur.RankId });
+            // modelBuilder.Entity<Subject>().HasKey(s => new { s.subjectName, s.teacherName });
             modelBuilder.Entity<Resource>().HasKey(r => new { r.path });
             modelBuilder.Entity<Comment>().HasKey(c => new { c.UserId, c.message });
 
@@ -86,13 +101,6 @@ namespace CMS.Domain
             modelBuilder.Entity<User>().HasMany(u => u.UserRanks);
             modelBuilder.Entity<Rank>().HasMany(r => r.UserRanks);
             modelBuilder.Entity<Subject>().HasMany(s => s.Resources);
-
-
-            //modelBuilder.Entity<IdentityRoleClaim<Guid>>(e => e.ToTable("RoleClaim").HasKey(x => x.Id));
-            //modelBuilder.Entity<IdentityUserRole<Guid>>(e => e.ToTable("UserRoles").HasKey(x => x.RoleId));
-            //modelBuilder.Entity<IdentityUserLogin<Guid>>(e => e.ToTable("UserLogin").HasKey(x => x.UserId));
-            //modelBuilder.Entity<IdentityUserClaim<Guid>>(e => e.ToTable("UserClaims").HasKey(x => x.Id));
-            // modelBuilder.Entity<IdentityUserToken<Guid>>(e => e.ToTable("UserTokens").HasKey(x => x.UserId));
         }
     }
 }

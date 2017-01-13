@@ -54,13 +54,26 @@ namespace Business
             editedUser.UserName = user.UserName;
             editedUser.CompleteName = user.CompleteName;
             _userRepository.SaveChanges();
+            List<Guid> userRankList=new List<Guid>();
             foreach (var rank in ranks)
             {
-                var rankId = _rankRepository.Query(r => r.Name.Equals(rank.Name)).FirstOrDefault().Id;
-                var userRanks=_userRankRepository.Query(ur => ur.UserId == user.Id && ur.RankId == rankId).FirstOrDefault();
-                if (userRanks==null)
+                if (rank.Name != null)
                 {
-                    _userRankRepository.Add(new UserRank(user.Id, rankId));
+                    var rankId = _rankRepository.Query(r => r.Name.Equals(rank.Name)).FirstOrDefault().Id;
+                    var userRank = _userRankRepository.Query(ur => ur.UserId == user.Id && ur.RankId == rankId).FirstOrDefault();
+                    if (userRank == null)
+                    {
+                        _userRankRepository.Add(new UserRank(user.Id, rankId));
+                    }
+                    userRankList.Add(rankId);
+                }
+            }
+            var userRanks = _userRankRepository.Query(ur => ur.UserId == user.Id).ToList();
+            foreach (var uRank in userRanks)
+            {
+                if (!userRankList.Contains(uRank.RankId))
+                {
+                    _userRankRepository.Delete(uRank.Id);
                 }
             }
             _userRankRepository.SaveChanges();

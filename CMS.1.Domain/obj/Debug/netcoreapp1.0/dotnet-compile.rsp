@@ -135,8 +135,8 @@
 --reference:C:\Users\Stefan\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Stefan\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\CMSContext.cs
-C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\Migrations\20170111201827_Init.cs
-C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\Migrations\20170111201827_Init.Designer.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\Migrations\20170113112340_Init.cs
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\Migrations\20170113112340_Init.Designer.cs
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\Migrations\CmsContextModelSnapshot.cs
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\Models\Base.cs
 C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS-v1\CMS\CMS.1.Domain\Models\Comment.cs

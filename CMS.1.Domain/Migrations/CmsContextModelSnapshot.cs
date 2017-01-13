@@ -105,13 +105,22 @@ namespace CMS._1.Domain.Migrations
 
             modelBuilder.Entity("CMS.Domain.Models.UserRank", b =>
                 {
-                    b.Property<Guid>("UserId");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<Guid>("RankId");
 
-                    b.HasKey("UserId", "RankId");
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("RankId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserRanks");
                 });

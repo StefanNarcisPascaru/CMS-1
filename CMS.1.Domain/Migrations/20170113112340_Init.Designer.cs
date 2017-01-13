@@ -8,7 +8,7 @@ using CMS.Domain;
 namespace CMS._1.Domain.Migrations
 {
     [DbContext(typeof(CmsContext))]
-    [Migration("20170111201827_Init")]
+    [Migration("20170113112340_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,13 +106,22 @@ namespace CMS._1.Domain.Migrations
 
             modelBuilder.Entity("CMS.Domain.Models.UserRank", b =>
                 {
-                    b.Property<Guid>("UserId");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<Guid>("RankId");
 
-                    b.HasKey("UserId", "RankId");
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("RankId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserRanks");
                 });
