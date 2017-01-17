@@ -26,8 +26,7 @@
       "type": "platform"
     },
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-    "Repository": "1.0.0-*",
-    "antlr4": "4.5.3"  
+    "Repository": "1.0.0-*" 
   },
 
 

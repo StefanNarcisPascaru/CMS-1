@@ -3,21 +3,6 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
-      "antlr4/4.5.3": {
-        "type": "package",
-        "dependencies": {
-          "Antlr4.Runtime": "4.5.3"
-        }
-      },
-      "Antlr4.Runtime/4.5.3": {
-        "type": "package",
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.dll": {}
-        }
-      },
       "Autofac/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -4363,65 +4348,6 @@
     }
   },
   "libraries": {
-    "antlr4/4.5.3": {
-      "sha512": "yqrZphYCjsvQWPcbFDTBoi1dEC5vpYdE5VyGoTlq3qH+TBEM1b2kSVKkMGG7OK9Ditjf0JjJajuHcufpxj3H8Q==",
-      "type": "package",
-      "path": "antlr4/4.5.3",
-      "files": [
-        "antlr4.4.5.3.nupkg.sha512",
-        "antlr4.nuspec",
-        "build/Antlr4.props",
-        "build/Antlr4.targets",
-        "build/Antlr4BuildTasks.net40.dll",
-        "tools/IKVM.AWT.WinForms.dll",
-        "tools/IKVM.OpenJDK.Beans.dll",
-        "tools/IKVM.OpenJDK.Charsets.dll",
-        "tools/IKVM.OpenJDK.Corba.dll",
-        "tools/IKVM.OpenJDK.Core.dll",
-        "tools/IKVM.OpenJDK.Management.dll",
-        "tools/IKVM.OpenJDK.Media.dll",
-        "tools/IKVM.OpenJDK.Misc.dll",
-        "tools/IKVM.OpenJDK.Naming.dll",
-        "tools/IKVM.OpenJDK.Remoting.dll",
-        "tools/IKVM.OpenJDK.Security.dll",
-        "tools/IKVM.OpenJDK.SwingAWT.dll",
-        "tools/IKVM.OpenJDK.Text.dll",
-        "tools/IKVM.OpenJDK.Util.dll",
-        "tools/IKVM.OpenJDK.XML.API.dll",
-        "tools/IKVM.Runtime.JNI.dll",
-        "tools/IKVM.Runtime.dll",
-        "tools/antlr4-csharp-4.5.3-complete.jar",
-        "tools/ikvm.exe",
-        "tools/ikvm.exe.config"
-      ]
-    },
-    "Antlr4.Runtime/4.5.3": {
-      "sha512": "LmBPKSi+sBH/FrXxZQwxrPhepN7L99BIQ8oZnnUMJWVoDdnuI5GRvLqsWow4nHenywc5pkiOWO3QGGs9vp03ig==",
-      "type": "package",
-      "path": "Antlr4.Runtime/4.5.3",
-      "files": [
-        "Antlr4.Runtime.4.5.3.nupkg.sha512",
-        "Antlr4.Runtime.nuspec",
-        "lib/net20/Antlr4.Runtime.dll",
-        "lib/net20/Antlr4.Runtime.xml",
-        "lib/net30/Antlr4.Runtime.dll",
-        "lib/net30/Antlr4.Runtime.xml",
-        "lib/net35-cf/Antlr4.Runtime.dll",
-        "lib/net35-cf/Antlr4.Runtime.xml",
-        "lib/net35-client/Antlr4.Runtime.dll",
-        "lib/net35-client/Antlr4.Runtime.xml",
-        "lib/net40-client/Antlr4.Runtime.dll",
-        "lib/net40-client/Antlr4.Runtime.xml",
-        "lib/net45/Antlr4.Runtime.dll",
-        "lib/net45/Antlr4.Runtime.xml",
-        "lib/netcore45/Antlr4.Runtime.dll",
-        "lib/netcore45/Antlr4.Runtime.xml",
-        "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.dll",
-        "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.xml",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr4.Runtime.xml"
-      ]
-    },
     "Autofac/4.0.0": {
       "sha512": "SCKzdkxEhyP0ahU4j2Fl3SQEO3BzAgGl1WpXe7oNHdDiVKRJ6DRpumfSekABPaBygeWwjDt88PBqe2nRToRrYA==",
       "type": "package",
@@ -11108,8 +11034,7 @@
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Microsoft.NETCore.App >= 1.0.1",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0",
-      "Repository >= 1.0.0-*",
-      "antlr4 >= 4.5.3"
+      "Repository >= 1.0.0-*"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

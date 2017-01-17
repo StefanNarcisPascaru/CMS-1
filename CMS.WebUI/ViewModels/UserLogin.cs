@@ -9,7 +9,5 @@ namespace CMS.WebUI.ViewModels
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Câmpul pentru parolă trebuie completat.")]
         public string Password { get; set; }
-        [Display(Name="Rămâi conectat!")]
-        public bool RememberMe { get; set; }
     }
 }

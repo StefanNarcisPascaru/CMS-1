@@ -7,13 +7,13 @@ namespace CMS.WebUI.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Authorize(Policy = "FacultyMember")]
+        [Authorize("FacultyMember")]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -21,7 +21,7 @@ namespace CMS.WebUI.Controllers
             return View();
         }
 
-        [Authorize(Policy = "Professor")]
+        [Authorize("Professor")]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

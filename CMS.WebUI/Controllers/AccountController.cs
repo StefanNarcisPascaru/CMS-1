@@ -11,27 +11,21 @@ using Microsoft.AspNetCore.Http.Authentication;
 
 namespace CMS.WebUI.Controllers
 {
+    [RequireHttps]
     public class AccountController : Controller
     {
         private readonly IUserLogic _userLogic;
-        //private readonly SignInManager<User> _loginManager;
-//        private readonly RoleManager<Rank> _roleManager;
 
-        public AccountController(IUserLogic userLogic
-          //      SignInManager<User> loginManager
-            //    RoleManager<Rank> roleManager
-            )
+        public AccountController(IUserLogic userLogic)
         {
             _userLogic = userLogic;
-            //_loginManager = loginManager;
-            //_roleManager = roleManager;
         }
         [AllowAnonymous]
         public IActionResult Login()
         {
             if (!User.Identity.IsAuthenticated)
                 return View();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -51,12 +45,12 @@ namespace CMS.WebUI.Controllers
             };
             var ranks = _userLogic.GetRanks(user.UserName);
             claims.AddRange(ranks.Select(rank => new Claim("Rank", rank)));//foreach prescurtat cu linq
-            var principal = new ClaimsPrincipal(new ClaimsIdentity(claims,"Cookie"));
+            var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, "Cookie"));
             await HttpContext.Authentication.SignInAsync("Cookies", principal,
                 new AuthenticationProperties()
                 {
                     ExpiresUtc = DateTime.UtcNow.AddMinutes(25),
-                    IsPersistent = user.RememberMe
+                    IsPersistent = false
                 });
             return RedirectToAction("About", "Home");
         }
@@ -70,7 +64,7 @@ namespace CMS.WebUI.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.Authentication.SignOutAsync("Cookies");
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

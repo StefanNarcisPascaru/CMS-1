@@ -3,12 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CMS.WebUI</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>@ViewData["Title"] - CMS</title>
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.min.css" />
-        @*<link rel="stylesheet" href="~/css/grid.css" />*@
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="~/lib/basic-landing-page/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Material Design Bootstrap -->
+        <link href="~/lib/basic-landing-page/css/mdb.min.css" rel="stylesheet">
+
+        <!-- Your custom styles (optional) -->
+        <link href="~/lib/basic-landing-page/css/style.css" rel="stylesheet">
+
+        <link href="~/css/site.css" rel="stylesheet" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -19,44 +31,75 @@
     </environment>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CMS.WebUI</a>
-            </div>
-            <div class="navbar-collapse collapse">
+    <!--Navbar-->
+    <nav class="navbar navbar-dark green navbar-fixed-top scrolling-navbar">
+
+        <!-- Collapse button-->
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="container-fluid">
+
+            <!--Collapse content-->
+            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+                <!--Navbar Brand-->
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Course Management System</a>
+                <!--Links-->
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     @if (User.HasClaim("Rank", "Admin"))
                     {
-                        <li><a asp-area="" asp-controller="Admin" asp-action="ManageUsers">Manage Users</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ManageUsers">Manage Users</a></li>
                     }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
-        </div>
-    </div>
-<div class="container body-content">
-    @RenderBody()
-    <div class="footer">
-        <hr/>
-        <footer>
-            <p>&copy; 2016 - CMS.WebUI</p>
-        </footer>
+            <!--/.Collapse content-->
 
+        </div>
+        <div class="view hm-black-strong">
+            <div class="full-bg-img flex-center">
+                <ul>
+                    <li>
+                        <h1 class="h1-responsive wow fadeInDown" data-wow-delay="0.2s">Material Design for Bootstrap 4</h1>
+                    </li>
+                    <li>
+                        <p class="wow fadeInDown">The most powerful and free UI KIT for Bootstrap</p>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://mdbootstrap.com/getting-started/" class="btn btn-primary btn-lg wow fadeInLeft" data-wow-delay="0.2s">Sign up!</a>
+                        <a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default btn-lg wow fadeInRight" data-wow-delay="0.2s">Learn more</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="body-content fadeIn">
+        @RenderBody()
     </div>
-</div>
 
     <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        <script type="text/javascript" src="~/lib/basic-landing-page/js/jquery-2.2.3.min.js"></script>
+
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="~/lib/basic-landing-page/js/tether.min.js"></script>
+
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="~/lib/basic-landing-page/js/bootstrap.min.js"></script>
+
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="~/lib/basic-landing-page/js/mdb.min.js"></script>
+
+        <!-- Animations init-->
+        <script>
+            new WOW().init();
+        </script>
+
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="~/lib/basic-landing-page/js/mdb.min.js"></script>
+
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
