@@ -61,15 +61,36 @@ namespace CMS.WebUI
         {
             app.ApplicationServices.GetRequiredService<CmsContext>().Seed();
 
+            var sslPort = 0;
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
+
+                var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile(@"Properties/launchSettings.json", optional: false, reloadOnChange: true);
+                var launchConfig = builder.Build();
+                sslPort = launchConfig.GetValue<int>("iisSettings:iisExpress:sslPort");
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.IsHttps)
+                {
+                    await next();
+                }
+                else
+                {
+                    var sslPortStr = $":{sslPort}";
+                    var httpsUrl = $"https://{context.Request.Host.Host}{sslPortStr}{context.Request.Path}";
+                    context.Response.Redirect(httpsUrl);
+                }
+            });
 
             app.UseStaticFiles();
             // app.UseIdentity();
@@ -87,7 +108,7 @@ namespace CMS.WebUI
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Account}/{action=Login}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using CMS.BussinesInterfaces.ModelLogic;
+using CMS.Domain;
+using CMS.Domain.Models;
 using CMS.WebUI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +17,14 @@ namespace CMS.WebUI.Controllers
     public class AccountController : Controller
     {
         private readonly IUserLogic _userLogic;
-
+        private readonly IEnumerable<Rank> _ranks;
         public AccountController(IUserLogic userLogic)
         {
             _userLogic = userLogic;
+            using (var context=new CmsContext())
+            {
+                _ranks = new List<Rank>(context.Ranks.ToList());
+            }
         }
         [AllowAnonymous]
         public IActionResult Login()
@@ -65,6 +71,48 @@ namespace CMS.WebUI.Controllers
         {
             await HttpContext.Authentication.SignOutAsync("Cookies");
             return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            ViewBag.Ranks = _ranks.Select(p=>p.Name).ToList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(UserRegister model,List<string> rankList,  string returnUrl = null)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = new User
+            {
+                Id = Guid.NewGuid(),
+                UserName = model.UserName,
+                CompleteName = model.CompleteName,
+                Password = model.Password,
+                Email = model.Email,
+                UserRanks = new List<UserRank>()
+            };
+
+            var rankId=_ranks.First(r=>r.Name.Equals(model.Rank.ToString()));
+            user.UserRanks.Add(new UserRank
+            {
+                UserId = user.Id,
+                RankId = rankId.Id
+            });
+
+            using (var context = new CmsContext())
+            {
+                context.Users.Add(user);
+
+                context.SaveChanges();
+            }
+            return RedirectToAction("Login","Account");
         }
     }
 }
