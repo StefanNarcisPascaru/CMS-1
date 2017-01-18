@@ -1,6 +1,9 @@
 ﻿.header-grid {
   background-color: beige;
 }
+.grid {
+  padding: 20px;
+}
 .grid div {
   border: 1px solid white;
   font-size: medium;
@@ -15,4 +18,8 @@
 }
 .grid .grid-row:hover {
   background-color: #cc0000;
+}
+.grid .grid-row button {
+  padding: 3px;
+  margin: 1px;
 }

@@ -5,19 +5,19 @@ Manage Users
 
 <div class="row grid">
     <div class="row header-grid">
-        <div class="col-md-1 col-sm-1 hidden-xs">No.</div>
-        <div class="col-md-2 col-sm-2 hidden-xs">UserName</div>
+        <div class="col-md-1 col-sm-1 hidden-xs-down">No.</div>
+        <div class="col-md-2 col-sm-2 hidden-xs-down">UserName</div>
         <div class="col-md-4 col-sm-4 col-xs-10">Complete Name</div>
-        <div class="col-md-4 col-sm-4 hidden-xs">Rols</div>
+        <div class="col-md-4 col-sm-4 hidden-xs-down">Rols</div>
         <div class="col-md-1 col-sm-1 col-xs-2">Edit</div>
     </div>
     @for (var i = 0; i < @Model.Count; i++)
     {
         <div class="row grid-row">
-            <div class="col-md-1 col-sm-1 hidden-xs index">@(i + 1)</div>
-            <div class="col-md-2 col-sm-2 hidden-xs">@Model.ElementAt(i).User.UserName</div>
+            <div class="col-md-1 col-sm-1 hidden-xs-down index">@(i + 1)</div>
+            <div class="col-md-2 col-sm-2 hidden-xs-down">@Model.ElementAt(i).User.UserName</div>
             <div class="col-md-4 col-sm-4 col-xs-10">@Model.ElementAt(i).User.CompleteName</div>
-            <div class="col-md-4 col-sm-4 hidden-xs">
+            <div class="col-md-4 col-sm-4 hidden-xs-down">
                 @foreach (var rank in Model.ElementAt(i).Ranks)
                 {
                     <span>@rank.Name</span>
