@@ -42,11 +42,16 @@
         <div class="container-fluid">
 
             <!--Collapse content-->
-            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+            <div class="navbar-collapse collapse navbar-toggleable-xs">
                 <!--Navbar Brand-->
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Course Management System</a>
                 <!--Links-->
                 <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    }
                     @if (User.HasClaim("Rank", "Admin"))
                     {
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ManageUsers">Manage Users</a></li>
