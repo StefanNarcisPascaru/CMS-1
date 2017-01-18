@@ -53,6 +53,7 @@ namespace Business
             editedUser.Email = user.Email;
             editedUser.UserName = user.UserName;
             editedUser.CompleteName = user.CompleteName;
+            editedUser.RowVersion = new byte[] { 0, 0, 0, 0, 0, 0, 0, 120 }; 
             _userRepository.SaveChanges();
             List<Guid> userRankList=new List<Guid>();
             foreach (var rank in ranks)

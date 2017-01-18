@@ -92,8 +92,6 @@ namespace CMS.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<UserRank>().HasKey(ur => new { ur.UserId, ur.RankId });
-            // modelBuilder.Entity<Subject>().HasKey(s => new { s.subjectName, s.teacherName });
             modelBuilder.Entity<Resource>().HasKey(r => new { r.path });
             modelBuilder.Entity<Comment>().HasKey(c => new { c.UserId, c.message });
 
@@ -101,6 +99,21 @@ namespace CMS.Domain
             modelBuilder.Entity<User>().HasMany(u => u.UserRanks);
             modelBuilder.Entity<Rank>().HasMany(r => r.UserRanks);
             modelBuilder.Entity<Subject>().HasMany(s => s.Resources);
+
+            modelBuilder.Entity<User>().Property(b => b.RowVersion)
+                .ValueGeneratedOnAddOrUpdate()
+                .IsConcurrencyToken();
+        }
+
+        public override int SaveChanges()
+        {
+            var changes = ChangeTracker.Entries<BaseClass>().Where(p => p.State == EntityState.Modified).Select(u => u.Entity);
+            foreach (var change in changes)
+            {
+                Entry(change).Property(u => u.RowVersion).OriginalValue = new byte[] { 0, 0, 0, 0, 0, 0, 0, 120 };
+                var a = Entry(change).Property(u => u.RowVersion).OriginalValue;
+            }
+            return base.SaveChanges();
         }
     }
 }

@@ -1,10 +1,7 @@
-#:D:\CMS\CMS.WebUI\CMS.4.Clients.xproj
-D:\CMS\CMS.WebUI\CMS.4.Clients.xproj|D:\CMS\Business\Business.xproj
-D:\CMS\CMS.WebUI\CMS.4.Clients.xproj|D:\CMS\CMS.1.Domain\CMS.1.Domain.xproj
-D:\CMS\CMS.WebUI\CMS.4.Clients.xproj|D:\CMS\Repository\Repository.xproj
-D:\CMS\Business\Business.xproj|D:\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj
-D:\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|D:\CMS\CMS.1.Domain\CMS.1.Domain.xproj
-D:\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj|D:\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj
-D:\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj|D:\CMS\CMS.1.Domain\CMS.1.Domain.xproj
-D:\CMS\Repository\Repository.xproj|D:\CMS\CMS.1.Domain\CMS.1.Domain.xproj
-D:\CMS\Repository\Repository.xproj|D:\CMS\CMS.2.RepositoryInterfaces\CMS.2.RepositoryInterfaces.xproj
+#:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\Business\Business.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\Business\Business.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj
+#:C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\CMS.WebUI\CMS.4.Clients.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\CMS.WebUI\CMS.4.Clients.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\Business\Business.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\CMS.WebUI\CMS.4.Clients.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\CMS.1.Domain\CMS.1.Domain.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\CMS.WebUI\CMS.4.Clients.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\Repository\Repository.xproj
+C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\Business\Business.xproj|C:\Users\Stefan\Documents\Visual Studio 2015\Projects\CMS v1.0\CMS\CMS.3.BussinesInterfaces\CMS.3.BussinesInterfaces.xproj

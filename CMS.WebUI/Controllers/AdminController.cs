@@ -41,7 +41,7 @@ namespace CMS.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveChangesOnUser([FromForm]UserDto userDto)
+        public IActionResult SaveChangesOnUser(UserDto userDto)
         {
             _userLogic.Update(userDto.User, userDto.Ranks);
 

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CMS.Domain.Models
 {
-    public abstract class BaseClass
+    public class BaseClass
     {
         protected BaseClass()
         {

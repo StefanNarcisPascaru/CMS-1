@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Http.Authentication;
 
 namespace CMS.WebUI.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class AccountController : Controller
     {
         private readonly IUserLogic _userLogic;
