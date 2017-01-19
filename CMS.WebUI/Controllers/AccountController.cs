@@ -7,6 +7,7 @@ using CMS.BussinesInterfaces.ModelLogic;
 using CMS.Domain;
 using CMS.Domain.Models;
 using CMS.WebUI.ViewModels;
+using CMS.WebUI.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.Authentication;

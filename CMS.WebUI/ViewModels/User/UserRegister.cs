@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CMS.WebUI.ViewModels
+namespace CMS.WebUI.ViewModels.User
 {
     public class UserRegister
     {

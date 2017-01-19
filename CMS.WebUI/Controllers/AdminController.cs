@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CMS.BussinesInterfaces.ModelLogic;
-using CMS.WebUI.ViewModels;
+using CMS.WebUI.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

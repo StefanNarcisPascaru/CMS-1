@@ -5,7 +5,7 @@ using CMS.Domain;
 using CMS.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Resource = CMS.WebUI.ViewModels.Resource;
+using CMS.WebUI.ViewModels.Resource;
 
 namespace CMS.WebUI.Controllers
 {
@@ -24,7 +24,7 @@ namespace CMS.WebUI.Controllers
 
         public IActionResult Courses()
         {
-            ViewBag.Subjects = _subjects.Where(s => s.teacherName.Equals(User.Identity.Name)).ToList(); ;
+            ViewBag.Subjects = _subjects.Where(s => s.teacherName.Equals(User.Identity.Name)).ToList();
             return View();
         }
 
@@ -66,12 +66,12 @@ namespace CMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddResource(Resource resource, string returnUrl = null)
+        public IActionResult AddResource(ResourceDto resource, string returnUrl = null)
         {
             if (!ModelState.IsValid) return View(resource);
 
-            var subject = _context.Subjects.First(s => s.subjectName.Equals(resource.CourseName));
-            var persistentResource = new Domain.Models.Resource
+            var subject = _context.Subjects.First(s => s.subjectName.Equals(resource.Name));
+            var persistentResource = new Resource
             {
                 Subject = subject,
                 SubjectNo = subject.Id,
