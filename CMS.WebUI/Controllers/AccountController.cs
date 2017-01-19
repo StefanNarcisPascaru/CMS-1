@@ -43,22 +43,35 @@ namespace CMS.WebUI.Controllers
                 return View(user);
             }
 
-            // var result = _loginManager.PasswordSignInAsync(user.UserName, user.Password, user.RememberMe,false).Result;
             var claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Name,user.UserName),
-                //new Claim("Rank","Professor")
             };
             var ranks = _userLogic.GetRanks(user.UserName);
+
             claims.AddRange(ranks.Select(rank => new Claim("Rank", rank)));//foreach prescurtat cu linq
             var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, "Cookie"));
+
             await HttpContext.Authentication.SignInAsync("Cookies", principal,
                 new AuthenticationProperties()
                 {
                     ExpiresUtc = DateTime.UtcNow.AddMinutes(25),
                     IsPersistent = false
                 });
-            return RedirectToAction("About", "Home");
+
+            if(ranks.ElementAt(0).Equals("FacultyMember"))
+            {
+                return RedirectToAction("Student", "Home");
+            }
+            if (ranks.ElementAt(0).Equals("Professor"))
+            {
+                return RedirectToAction("Courses", "Professor");
+            }
+            if (ranks.ElementAt(0).Equals("Admin"))
+            {
+                return RedirectToAction("Admin", "Home");
+            }
+            return View(user);
         }
 
         public IActionResult Forbidden()

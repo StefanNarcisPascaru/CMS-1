@@ -32,7 +32,7 @@
 </head>
 <body>
     <!--Navbar-->
-    <nav class="navbar navbar-dark green navbar-fixed-top scrolling-navbar">
+    <nav class="navbar navbar-dark warning-color-dark navbar-fixed-top scrolling-navbar">
 
         <!-- Collapse button-->
         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
@@ -42,16 +42,11 @@
         <div class="container-fluid">
 
             <!--Collapse content-->
-            <div class="navbar-collapse collapse navbar-toggleable-xs">
+            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
                 <!--Navbar Brand-->
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Course Management System</a>
                 <!--Links-->
                 <ul class="nav navbar-nav">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    }
                     @if (User.HasClaim("Rank", "Admin"))
                     {
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ManageUsers">Manage Users</a></li>
@@ -61,7 +56,6 @@
                         if (User.HasClaim("Rank", "Professor"))
                         {
                             <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Professor" asp-action="Courses">Manage courses</a></li>
-                            <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Professor" asp-action="AddCourse">Add course</a></li>
                         }
                     }
                 </ul>

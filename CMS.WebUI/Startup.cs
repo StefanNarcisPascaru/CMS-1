@@ -51,6 +51,7 @@ namespace CMS.WebUI
             containerBuilder.RegisterType<UserLogic>().As<IUserLogic>();
             containerBuilder.RegisterType<RankLogic>().As<IRankLogic>();
             containerBuilder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>));
+
             containerBuilder.Populate(services);
             ApplicationContainer = containerBuilder.Build();
             return new AutofacServiceProvider(ApplicationContainer);

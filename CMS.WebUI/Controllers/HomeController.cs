@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS.WebUI.Controllers
@@ -13,22 +12,24 @@ namespace CMS.WebUI.Controllers
             return View();
         }
 
-        [Authorize("FacultyMember")]
-        public IActionResult About()
+        [Authorize("AdminOnly")]
+        public IActionResult Admin()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
         [Authorize("Professor")]
-        public IActionResult Contact()
+        public IActionResult Teacher()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
-        
+
+        [Authorize("FacultyMember")]
+        public IActionResult Student()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();

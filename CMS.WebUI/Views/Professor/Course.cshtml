@@ -1,0 +1,66 @@
+﻿@model CMS.Domain.Models.Subject
+
+@{
+    ViewData["Title"] = Model.subjectName;
+}
+
+<h3>@Model.subjectName</h3>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card-block col-md-6">
+            <div class="mx-auto float-xs-none">
+                <h3>
+                    <i class="fa fa-book"></i> Slides:
+                </h3>
+            </div>
+            @if (Model.Resources != null)
+            {
+                <ul class="list-group">
+                    @foreach (var resource in Model.Resources)
+                    {
+                        if (resource.type.Equals("Course"))
+                        {
+                            <li class="list-group-item">@resource.path</li>
+                        }
+                    }
+                </ul><br />
+            }
+        </div>
+
+        <div class="card-block col-md-6">
+            <div class="mx-auto float-xs-none">
+                <h3>
+                    <i class="fa fa-code"></i> Demos:
+                </h3>
+            </div>
+            @if (Model.Resources != null)
+            {
+                <ul class="list-group">
+                    @foreach (var resource in Model.Resources)
+                    {
+                        if (resource.type.Equals("Demo"))
+                        {
+                            <li class="list-group-item">@resource.path</li>
+                        }
+                    }
+                </ul>
+            }
+
+
+        </div>
+    </div>
+
+
+    <div class="card-block col-md-4">
+        <div class="mx-auto float-xs-none">
+            <h3>
+                <i class="fa fa-comment"></i> Discussions:
+            </h3>
+        </div>
+    </div>
+    <a asp-action="AddResource" style="position: fixed; bottom: 0px; right: 0px;" asp-route-id=@Model.Id asp-controller="Professor">
+        <h3>
+            <i class="fa fa-plus"></i> Add resource
+        </h3>
+    </a>
+</div>

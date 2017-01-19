@@ -10,7 +10,6 @@ namespace CMS.Domain.Models
         public string CompleteName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-
         [ForeignKey("UserId")]
         [JsonIgnore]
         public virtual ICollection<UserRank> UserRanks { get; set; }

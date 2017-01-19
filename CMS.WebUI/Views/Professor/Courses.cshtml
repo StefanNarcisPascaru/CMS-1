@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Courses";
+}
+<div class="row">
+    @if (@ViewBag.Subjects.Count == 0)
+    {
+        <p class="text-danger">No courses found for this teacher.</p>
+    }
+    else
+    {
+        <ul class="col-md-4 mx-auto float-xs-none">
+            @foreach (var subject in @ViewBag.Subjects)
+            {
+            <li>
+                <a class="btn btn-outline-primary waves-effect" asp-action="Course" asp-route-id=@subject.Id asp-controller="Professor">
+                    <span>@subject.subjectName</span>
+                </a>
+            </li>
+            }
+        </ul>
+    }
+</div>

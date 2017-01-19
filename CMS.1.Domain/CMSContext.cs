@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using CMS.Domain.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Domain

@@ -1,0 +1,49 @@
+﻿@using CMS.WebUI.ViewModels
+@model Resource
+@{
+    ViewData["Title"] = "New resource";
+}
+<div class="row">
+    <div class="col-md-4 mx-auto float-xs-none">
+        <div class="card center-block">
+            <div class="card-block">
+                <!--Header-->
+                <div class="mx-auto float-xs-none">
+                    <h3><i class="fa fa-book"></i> New resource:</h3>
+                </div>
+                <form asp-action="AddResource" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+
+                    <br />
+
+                    <div class="md-form">
+                        <i class="fa fa-file prefix"></i>
+                        @Html.LabelFor(m => m.Type)<br />
+                        @Html.DropDownListFor(m => m.Type, new SelectList(Enum.GetValues(typeof(ResourceType)).Cast<ResourceType>()), null, new { @class = "form-control validate" })
+                        @Html.ValidationMessageFor(m => m.Type, null, new { @class = "text-danger" })
+                    </div>
+
+                    <br />
+
+                    <div class="md-form">
+                        @Html.LabelFor(m => m.File)
+                        @Html.TextBoxFor(m => m.File, new { type = "file", @class = "form-control validate" })
+                    </div>
+
+                    <br />
+
+                    <div class="md-form">
+                        @Html.LabelFor(m => m.CourseName)
+                        @Html.TextBoxFor(m => m.CourseName, new { @class = "form-control validate" })
+                    </div>
+                    
+                    <br />
+
+                    <div class="text-xs-center">
+                        <button type="submit" id="alert-target" class="btn btn-default">Add</button><br />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

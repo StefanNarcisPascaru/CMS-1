@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CMS.WebUI.Controllers
 {
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize("AdminOnly")]
     public class AdminController : Controller
     {
         private readonly IRankLogic _rankLogic;

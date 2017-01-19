@@ -19,52 +19,46 @@
 
                     <div class="md-form">
                         <i class="fa fa-user prefix"></i>
-                        @Html.TextBoxFor(m => m.UserName, new {@class = "form-control"})
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
                         @Html.LabelFor(m => m.UserName)
-                        @Html.ValidationMessageFor(m => m.UserName, null, new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "text-danger" })
                     </div>
 
                     <div class="md-form">
                         <i class="fa fa-user prefix"></i>
-                        @Html.TextBoxFor(m => m.CompleteName, new {@class = "form-control"})
+                        @Html.TextBoxFor(m => m.CompleteName, new { @class = "form-control" })
                         @Html.LabelFor(m => m.CompleteName, null)
                     </div>
 
                     <div class="md-form">
                         <i class="fa fa-envelope prefix"></i>
-                        @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                         @Html.LabelFor(m => m.Email)
-                        @Html.ValidationMessageFor(m => m.Email, null, new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
                     </div>
 
                     <div class="md-form">
                         <i class="fa fa-lock prefix"></i>
-                        @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         @Html.LabelFor(m => m.Password)
-                        @Html.ValidationMessageFor(m => m.Password, null, new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
                     </div>
 
                     <div class="md-form">
                         <i class="fa fa-lock prefix"></i>
-                        @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control"})
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                         @Html.LabelFor(m => m.ConfirmPassword, null)
-                        @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" })
 
                     </div>
 
-                    <span>Select the role: </span>
-                    using (var context = new CmsContext())
-                    {
-                        @Html.DropDownList("Rank", new SelectList(Enum.GetValues(typeof(Ranks))), string.Empty,new {@class= "custom-select" })
-                    }
-
-                    <br/>
+                    <br />
 
                     <div class="text-xs-center">
-                        <button type="submit" class="btn btn-primary">Register</button><br/>
+                        <button type="submit" class="btn btn-primary">Register</button><br />
                     </div>
 
-                    @Html.ValidationMessage("LoginError", null, new {@class = "text-danger"})
+                    @Html.ValidationMessage("LoginError", null, new { @class = "text-danger" })
                 }
             </div>
         </div>
