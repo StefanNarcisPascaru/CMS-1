@@ -19,6 +19,8 @@ namespace CMS.Domain.Models
         public string username { get; set; }
 
         public string subject { get; set; }
+        
+        public DateTime date {get;set;}
 
     }
 }
