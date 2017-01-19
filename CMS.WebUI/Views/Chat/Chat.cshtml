@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CMS.Domain.Models.Comment
+
+<link href="~/css/font-awesome.css" rel="stylesheet" />
+
+<div class="card center-block" style="height:550px;" >
+   
+     <h3 class="col-md-5 mx-auto float-xs-none">@ViewBag.materie</h3>
+
+    <div  class="col-md-5 mx-auto float-xs-none">
+        <textarea rows="15" cols="70" style="height:400px;">
+
+            @foreach (var msg in (List<string>)ViewBag.Chat)
+            {
+            @msg
+
+            }
+
+        </textarea>
+    </div>
+
+    <div  class="col-md-5 mx-auto float-xs-none">
+        <form name="message" id="message" method="post">
+
+            <input asp-for="message" type="text" id="usermsg" size="70" />
+            <div class="text-xs-center">
+                <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+            </div>
+
+        </form>
+    </div>
+</div>

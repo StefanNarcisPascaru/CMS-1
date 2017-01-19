@@ -14,10 +14,10 @@
   background-color: aqua;
 }
 .grid .grid-row:nth-child(odd) {
-  background-color: #66ffff;
+  background-color: #99ffff;
 }
 .grid .grid-row:hover {
-  background-color: #cc0000;
+  background-color: #006666;
 }
 .grid .grid-row button {
   padding: 3px;

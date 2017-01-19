@@ -10,5 +10,9 @@
   {
     "outputFile": "wwwroot/css/grid.css",
     "inputFile": "wwwroot/less/grid.less"
+  },
+  {
+    "outputFile": "wwwroot/css/filter.css",
+    "inputFile": "wwwroot/less/filter.less"
   }
 ]

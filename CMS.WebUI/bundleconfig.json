@@ -8,6 +8,7 @@
       "wwwroot/css/site.css",
       "wwwroot/css/form.css",
       "wwwroot/css/grid.css",
+      "wwwroot/css/filter.css",
       "wwwroot/css/font-awesome.css"
     ]
   },
