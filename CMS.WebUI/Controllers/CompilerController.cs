@@ -1,95 +1,101 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using System;
-using System.Diagnostics;
-using CMS.WebUI.ViewModels;
-using System.Text;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using CMS.Domain.Models;
+
+
+// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CMS.WebUI.Controllers
 {
-
-    [Authorize]
-    public class CompilerController : Controller
+    public class ChatController : Controller
     {
-       public static CompilerData data = new CompilerData() { Input = "Write code", Output = "Result" };
-        public IActionResult Index()
-        {
-            
-            return View(data);
-        }
+        private CMS.Domain.CmsContext _context = new CMS.Domain.CmsContext();
+        public static string Materie { set; get; }
+        public static bool Verificare { set; get; }
+        
 
  
-    private string GenerateOuput(string Input, string ClassName)
+        public IActionResult Choose()
         {
-     
-            /* Run CMD */
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.UseShellExecute = false;
-            startInfo.RedirectStandardOutput = true;
-            startInfo.WorkingDirectory = @"E:\\LocalServerData";
-            startInfo.FileName = "CMD.exe";
-            startInfo.Arguments = "/c javac " + ClassName + ".java 2> error.txt";
-            process.StartInfo = startInfo;
-            process.Start();
-            process.WaitForExit();
-
-            string output = System.IO.File.ReadAllText("e:\\LocalServerData\\error.txt", Encoding.UTF8);
-
-            if (output.Length == 0)
-            {
-                process = new Process();
-                startInfo = new ProcessStartInfo();
-                startInfo.UseShellExecute = false;
-                startInfo.RedirectStandardOutput = true;
-                startInfo.WorkingDirectory = @"E:\\LocalServerData";
-                startInfo.FileName = "CMD.exe";
-                startInfo.Arguments = "/c java " + ClassName;
-                process.StartInfo = startInfo;
-                process.Start();
-                output = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();
-
-                Console.WriteLine(output);
-            }
-
-            return output;
+            if (Verificare == true)
+                ViewBag.Verificare = "No discipline";
+            return View();
         }
 
-
         [HttpPost]
-        public IActionResult ClickButton_saveInputToServer(string InputData)
+        public IActionResult Choose(Comment materie)
         {
-            string ClassName = null;
-            List<string> list = new List<string>();
+            Materie = materie.message;
 
-            string[] words = InputData.Split(new char[] { ' ', '\t', '{' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string word in words)
+            Verificare = true;
+            List<Subject> lines;
+            lines=_context.Subjects.ToList();
+            foreach (Subject line in lines)
             {
-                if (word != " ")
-                    list.Add(word);
-
+                if (line.subjectName == Materie)
+                    Verificare = false;
             }
-
-            for (int i = 0; i < list.Count; i++)
+            if (Verificare == false)
             {
-                if (list[i] == "class")
-                    ClassName = list[i + 1];
-            }
-
-            if (ClassName != null)
-            {
-                ClassName = ClassName.Remove(ClassName.Length - 2);
-                System.IO.File.WriteAllText("E:\\LocalServerData\\" + ClassName + ".java", InputData);
-                data = new CompilerData() { Input = InputData, Output = GenerateOuput(InputData, ClassName) };
+               Verificare = true;
+               return RedirectToAction("Chat");
+                
             }
             else
-                data = new CompilerData() { Input = InputData, Output = "Corrupted file"};
+                return RedirectToAction("Choose");
+        }
+        // GET: /<controller>/
+        public IActionResult Chat()
+        {
+            List<string> mesaje=new List<string>();//lista cu mesaje 
+            List<Comment> lines;//liniile din tabela
+           
 
 
-            return RedirectToAction("Index");
+            lines=_context.Comments.ToList();//informatiile din tabela
+            lines = lines.OrderBy(x => x.date).ToList();//sortam dupa data
 
+            foreach (Comment line in lines)
+            {
+                if (String.Compare(line.subject,Materie)==0)
+
+                    mesaje.Add(line.username+"::"+line.date+":"+line.message+ "\n"); 
+            }
+
+          
+
+            ViewBag.chat = mesaje;
+            ViewBag.materie = Materie;
+
+
+            
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Chat(Comment model)
+        {
+            model.UserId = Guid.Parse("EBF73255-1252-4FD0-AAD5-7C9D61E38824");
+            
+            model.date = DateTime.Now;
+            model.subject = Materie;
+          
+
+            if (User.Identity.IsAuthenticated)
+                model.username=User.Identity.Name;
+            else
+               model.username="No user identity available.";
+            
+
+            _context.Comments.Add(model);
+            _context.SaveChanges();
+            ModelState.Clear();
+
+
+            return RedirectToAction("Chat");
         }
     }
 }
+
