@@ -1,0 +1,37 @@
+﻿@using System.Threading.Tasks
+@model CMS.WebUI.ViewModels.CompilerData
+@{
+
+
+}
+<title>
+    Run your code here !!
+</title>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/compilerStyleSheet.css" />
+</head>
+
+<body>
+
+    Write your code here..<br />
+
+    <form action="Compiler\ClickButton_saveInputToServer" method="post">
+        
+        <textarea class="outputFrame" id="input" name="InputData" type="Text">@Model.Input</textarea>
+
+        <textarea class="outputFrame" readonly>@Model.Output</textarea>
+
+        <br />
+        <input class="runButton" type="submit" name="Run" value="Run" >
+
+    </form>
+ 
+
+</body>
+
+
+
+    
+
+ 
