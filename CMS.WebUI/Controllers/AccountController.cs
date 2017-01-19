@@ -56,11 +56,11 @@ namespace CMS.WebUI.Controllers
             await HttpContext.Authentication.SignInAsync("Cookies", principal,
                 new AuthenticationProperties()
                 {
-                    ExpiresUtc = DateTime.UtcNow.AddMinutes(25),
+                    ExpiresUtc = DateTime.UtcNow.AddMinutes(500),
                     IsPersistent = false
                 });
 
-            if(ranks.ElementAt(0).Equals("FacultyMember"))
+            if(ranks.ElementAt(0).Equals("Student"))
             {
                 return RedirectToAction("Student", "Home");
             }
@@ -96,7 +96,7 @@ namespace CMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(UserRegister model,List<string> rankList,  string returnUrl = null)
+        public IActionResult Register(UserRegister model, string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {

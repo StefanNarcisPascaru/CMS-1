@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Http;
 
 namespace CMS.WebUI.ViewModels.Resource

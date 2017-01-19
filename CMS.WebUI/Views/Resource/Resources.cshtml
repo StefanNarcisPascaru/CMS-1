@@ -3,11 +3,15 @@
 
 
 
-<form>
+<form asp-action="Resources" asp-controller="Resource" asp-antiforgery="false" method="post">
     <div class="row filter form-group">
-        <input class="col-md-3 col-sm-3 col-xs-3 form-control" type="text" placeholder="Name" />
-        <input class="col-md-3 col-sm-3 col-xs-3 form-control" type="text" placeholder="Name" />
-        <input class="col-md-3 col-sm-3 col-xs-3 form-control" type="text" placeholder="Name" />
+        <div class="col-md-3 col-sm-3 col-xs-3 ">
+            <input class="form-control" type="text" name="name" placeholder="Name" />
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 ">
+            <input class="form-control" type="text" name="subject" placeholder="Subject" />
+        </div>
+        <input class="btn btn-link nav-link" type="submit" Value="Apply" />
     </div>
 </form>
 
