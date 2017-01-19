@@ -1,8 +1,17 @@
-﻿@using CMS.WebUI.ViewModels.User
-@model IList<CMS.WebUI.ViewModels.User.UserDto>
+﻿@model IList<CMS.WebUI.ViewModels.User.UserDto>
 <h3>Manage Users</h3>
 
-<div id="data" hidden> @Model</div>
+<form asp-action="ManageUsers" asp-controller="Admin" asp-antiforgery="false" method="post">
+    <div class="row filter form-group">
+        <div class="col-md-3 col-sm-3 col-xs-3 ">
+            <input class="form-control" type="text" name="userName" placeholder="User Name" />
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 ">
+            <input class="form-control" type="text" name="completeName" placeholder="Complete Name" />
+        </div>
+        <input class="btn btn-link nav-link" type="submit" Value="Apply" />
+    </div>
+</form>
 
 <div class="row grid">
     <div class="row header-grid">

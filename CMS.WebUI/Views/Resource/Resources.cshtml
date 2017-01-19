@@ -1,7 +1,7 @@
 ﻿@model  IList<CMS.WebUI.ViewModels.Resource.ResourceDto>
 <h3> Resources </h3>
 
-
+<script src="~/js/resource.js"></script>
 
 <form asp-action="Resources" asp-controller="Resource" asp-antiforgery="false" method="post">
     <div class="row filter form-group">
@@ -18,8 +18,8 @@
 <div class="row grid">
     <div class="row header-grid">
         <div class="col-md-1 col-sm-1 hidden-xs-down">No.</div>
-        <div class="col-md-2 col-sm-2 hidden-xs-down">Resource Name</div>
-        <div class="col-md-4 col-sm-4 col-xs-10">Type</div>
+        <div class="col-md-2 col-sm-2 hidden-xs-down">Type</div>
+        <div class="col-md-4 col-sm-4 col-xs-10">Resource Name</div>
         <div class="col-md-4 col-sm-4 hidden-xs-down">Subject</div>
         <div class="col-md-1 col-sm-1 col-xs-2">Download</div>
     </div>
@@ -27,16 +27,16 @@
     {
         <div class="row grid-row">
             <div class="col-md-1 col-sm-1 hidden-xs-down index">@(i + 1)</div>
-            <div class="col-md-2 col-sm-2 hidden-xs-down">@Model.ElementAt(i).Name</div>
-            <div class="col-md-4 col-sm-4 col-xs-10">@Model.ElementAt(i).Type</div>
+            <div class="col-md-2 col-sm-2 hidden-xs-down">@Model.ElementAt(i).Type</div>
+            <div class="col-md-4 col-sm-4 col-xs-10">@Model.ElementAt(i).Name</div>
             <div class="col-md-4 col-sm-4 hidden-xs-down">@Model.ElementAt(i).Subject</div>
             <div class="col-md-1 col-sm-1 col-xs-2">
                 <button type="button" class="btn btn-primary btn-default btn-xs"
-                        title="See in browser" onclick="gotoResource('@Model.ElementAt(i).Id')">
+                        title="See in browser" onclick="gotoResource('@Model.ElementAt(i).File')">
                     <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
                 <button type="button" class="btn btn-primary btn-default btn-xs"
-                        title="Download" onclick="downloadResource('@Model.ElementAt(i).Id')">
+                        title="Download" onclick="downloadResource('@Model.ElementAt(i).File')">
                     <i class="fa fa-download" aria-hidden="true"></i>
                 </button>
             </div>

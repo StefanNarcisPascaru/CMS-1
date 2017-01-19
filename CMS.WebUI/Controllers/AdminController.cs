@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CMS.BussinesInterfaces.ModelLogic;
 using CMS.WebUI.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
@@ -19,13 +20,17 @@ namespace CMS.WebUI.Controllers
             _rankLogic = rankLogic;
         }
 
-        public IActionResult ManageUsers()
+        public IActionResult ManageUsers(string completeName = null, string username = null)
         {
             var detailedUsers = new List<UserDto>();
             var users = _userLogic.GetUsers();
+            if (completeName != null)
+                users = users.Where(u => u.CompleteName.Contains(completeName)).ToList();
+            if (username != null)
+                users = users.Where(u => u.UserName.Contains(username)).ToList();
             foreach (var user in users)
             {
-                detailedUsers.Add(new UserDto() {User = user, Ranks = _rankLogic.GetUserRanks(user.Id)});
+                detailedUsers.Add(new UserDto() { User = user, Ranks = _rankLogic.GetUserRanks(user.Id) });
             }
             return View(detailedUsers);
         }

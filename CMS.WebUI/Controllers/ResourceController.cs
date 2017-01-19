@@ -27,16 +27,16 @@ namespace CMS.WebUI.Controllers
                  new ResourceDto
                 {
                     Id=Guid.Parse("36AD59A2-FE81-445B-97F6-31FD92674DE5"),
-                    Name = "bla bla",
-                    Subject = "inteligenta artificiala",
-                    Type = "pdf",
+                    Name = "ChatBot",
+                    Subject = "Inteligenta artificiala",
+                    Type = "pptx",
                     //File = new FileStream("./ProfessorController",FileMode.Open)
                 },
                   new ResourceDto
                 {
                     Id=Guid.Parse("36AD59A2-FE81-445B-97F6-31FD92674DE5"),
                     Name = "entity framework",
-                    Subject = "introducere in .net",
+                    Subject = "Introducere in .net",
                     Type = "pdf",
                     //File = new FileStream("./ProfessorController",FileMode.Open)
                 }
